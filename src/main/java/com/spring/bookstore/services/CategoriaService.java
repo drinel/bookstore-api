@@ -1,6 +1,7 @@
 package com.spring.bookstore.services;
 
 import com.spring.bookstore.domain.Categoria;
+import com.spring.bookstore.dtos.CategoriaDTO;
 import com.spring.bookstore.repositories.CategoriaRepository;
 import com.spring.bookstore.services.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,4 +31,15 @@ public class CategoriaService {
         return repo.save(obj);
 
     }
+
+    public Categoria update(Long id, CategoriaDTO objDTO) {
+        Categoria obj = repo.getById(id);
+
+        obj.setNome(objDTO.getNome());
+        obj.setDescricao(objDTO.getDescricao());
+
+        return repo.save(obj);
+    }
+
+
 }
