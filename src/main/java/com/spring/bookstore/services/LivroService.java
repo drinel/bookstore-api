@@ -50,4 +50,9 @@ public class LivroService {
         return repo.save(obj);
 
     }
+
+    public void delete(Long id) {
+        Livro obj = findById(id);
+        repo.delete(obj);
+    }
 }
