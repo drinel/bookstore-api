@@ -15,7 +15,7 @@ public class LivroService {
     @Autowired
     private LivroRepository repo;
     @Autowired
-    private CategoriaService service;
+    private CategoriaService serviceCategory;
 
     public Livro findById(Long id){
      Optional<Livro> obj = repo.findById(id);
@@ -24,7 +24,21 @@ public class LivroService {
     }
 
     public List<Livro> findAll(Long id_cat) {
-       service.findById(id_cat);
-       return repo.findAllByCategory(id_cat);
+       serviceCategory.findById(id_cat);
+       return repo.findAllByCategoriaIdOrderByTitulo(id_cat);
+    }
+
+    public Livro update(Long id, Livro obj) {
+        Livro newObj = repo.getById(id);
+        updateData(newObj, obj);
+
+        return repo.save(newObj);
+    }
+
+    private void updateData(Livro newObj, Livro obj) {
+
+        newObj.setTitulo(obj.getTitulo());
+        newObj.setNome_autor(obj.getNome_autor());
+        newObj.setTexto(obj.getTexto());
     }
 }

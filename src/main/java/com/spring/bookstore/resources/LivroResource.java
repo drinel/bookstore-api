@@ -30,5 +30,15 @@ public class LivroResource {
                  //localhost:8080/livros?categoria=1
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Livro> update(@PathVariable  Long id , @RequestBody Livro obj){
+        Livro newObj = service.update(id, obj);
+        return ResponseEntity.ok().body(newObj);
+    }
 
+    @PatchMapping("/{id}") // atualiza uma informação
+    public ResponseEntity<Livro> updateOne(@PathVariable  Long id , @RequestBody Livro obj){
+        Livro newObj = service.update(id, obj);
+        return ResponseEntity.ok().body(newObj);
+    }
 }
