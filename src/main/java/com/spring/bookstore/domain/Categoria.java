@@ -1,10 +1,14 @@
 package com.spring.bookstore.domain;
 
+import org.hibernate.validator.constraints.Length;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Categoria implements Serializable {
@@ -14,7 +18,15 @@ public class Categoria implements Serializable {
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
+	@NotBlank(message = "Campo está em branco")
+	@NotEmpty(message = "Insira o nome do livro")
+	@Length(min = 2,max = 100, message = "Inserir de 2 a 100 caracteres")
 	private String nome;
+
+	@NotBlank(message = "Campo está em branco")
+	@NotEmpty(message = "Insira uma descrição")
+	@Length(min = 2,max = 200, message = "Inserir de 2 a 200 caracteres")
 	private String descricao;
 	
    @OneToMany(mappedBy = "categoria")

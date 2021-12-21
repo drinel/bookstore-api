@@ -1,7 +1,9 @@
 package com.spring.bookstore.dtos;
 
 import com.spring.bookstore.domain.Categoria;
+import org.hibernate.validator.constraints.Length;
 
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 
 public class CategoriaDTO implements Serializable {
@@ -9,8 +11,15 @@ public class CategoriaDTO implements Serializable {
     private static final long serialVersionUID = 1l;
 
     private Long id;
+
+    @NotEmpty(message = "Insira o nome do livro")
+    @Length(min = 2,max = 100, message = "Inserir de 2 a 100 caracteres")
     private String nome;
+
+    @NotEmpty(message = "Insira uma descrição")
+    @Length(min = 2,max = 200, message = "Inserir de 2 a 200 caracteres")
     private String descricao;
+
 
 
     public CategoriaDTO() {
