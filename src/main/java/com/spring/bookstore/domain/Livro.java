@@ -17,17 +17,17 @@ public class Livro implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@NotBlank(message = "Campo está em branco")
+	@NotBlank(message = "Campo título está em branco")
 	@NotEmpty(message = "Insira um título")
 	@Length(min = 2,max = 100, message = "Inserir de 2 a 100 caracteres")
 	private String titulo;
 
-	@NotBlank(message = "Campo está em branco")
+	@NotBlank(message = "Campo autor está em branco")
 	@NotEmpty(message = "Insira um autor")
 	@Length(min = 2,max = 100, message = "Inserir de 2 a 100 caracteres")
 	private String nome_autor;
 
-	@NotBlank(message = "Campo está em branco")
+	@NotBlank(message = "Campo texto está em branco")
 	@NotEmpty(message = "Insira um texto")
 	@Length(min = 2,max = 9999999, message = "Inserir de 2 a 9.999.999 caracteres")
 	private String texto;

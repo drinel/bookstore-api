@@ -19,12 +19,12 @@ public class Categoria implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@NotBlank(message = "Campo está em branco")
+	@NotBlank(message = "Campo nome está em branco")
 	@NotEmpty(message = "Insira o nome do livro")
 	@Length(min = 2,max = 100, message = "Inserir de 2 a 100 caracteres")
 	private String nome;
 
-	@NotBlank(message = "Campo está em branco")
+	@NotBlank(message = "Campo descrição está em branco")
 	@NotEmpty(message = "Insira uma descrição")
 	@Length(min = 2,max = 200, message = "Inserir de 2 a 200 caracteres")
 	private String descricao;
