@@ -12,7 +12,7 @@ public class CategoriaDTO implements Serializable {
 
     private Long id;
 
-    @NotEmpty(message = "Insira o nome do livro")
+    @NotEmpty(message = "Insira o nome da categoria")
     @Length(min = 2,max = 100, message = "Inserir de 2 a 100 caracteres")
     private String nome;
 
